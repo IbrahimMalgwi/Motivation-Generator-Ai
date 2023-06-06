@@ -22,7 +22,7 @@ export default function Home() {
         setQuoteLoadingError(false);
         setQuoteLoading(true);
 
-        const response = await fetch(`https://api/generate?prompt=${encodeURIComponent(prompt)}`);
+        const response = await fetch("/api/generate?prompt=" + encodeURIComponent(prompt));
         const body = await response.json();
         setQuote(body.quote);
       } catch (error) {
@@ -38,13 +38,13 @@ export default function Home() {
     <>
       <Head>
         <title>Motivation Generator AI - Generate Text</title>
-        <meta name="description" content="by Coding in Flow" />
+        <meta name="description" content="by GanzyMalgwi- Technologies" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
         <h1>Motivation Generator AI</h1>
-        <h2>powered by GPT-3</h2>
+        <h2>Powered by GPT-3</h2>
         <div>Enter a topic and the AI will Generate Motivation text for you</div>
         <div className={styles.mainImageContainer}>
           <Image
@@ -57,7 +57,7 @@ export default function Home() {
         </div>
         <Form onSubmit={handleSubmit} className={styles.inputForm}>
           <Form.Group className='mb-3' controlId='prompt-input'>
-            <Form.Label>Generate Motivation About about...</Form.Label>
+            <Form.Label>Generate Motivation About ...</Form.Label>
             <Form.Control
               name='prompt'
               placeholder='e.g. lifestyle, programming, people'
